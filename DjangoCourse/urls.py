@@ -16,9 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from ticketing.views import movie_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('ticketing/movie/list',movie_list )
+    path('ticketing/',include('ticketing.urls'))
 ]
