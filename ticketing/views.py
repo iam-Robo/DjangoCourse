@@ -8,7 +8,7 @@ from ticketing.models import Movie, Cinema
 def movie_list(request):
     movies = Movie.objects.all()
     context = {
-        'movie_list' : movies
+        'movie_list1' : movies
     }
     return render(request,'movie_list.html',context)
 

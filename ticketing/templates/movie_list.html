@@ -9,7 +9,11 @@
 <h3>لیست فیلم های در حال اکران</h3>
     <ul>
     <li>
-        name of movies are here
+        {% if movie_list1 %} <!--points to movie_list1 variable in views.py(this is Django template language)-->
+            فیلم هست
+        {% else %}
+            نیست
+        {% endif %}
     </li>
     </ul>
 
