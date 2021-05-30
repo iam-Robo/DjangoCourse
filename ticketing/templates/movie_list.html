@@ -8,13 +8,18 @@
 <h1>سامانه فروش بلیط سینما</h1>
 <h3>لیست فیلم های در حال اکران</h3>
     <ul>
-    <li>
+
         {% if movie_list1 %} <!--points to movie_list1 variable in views.py(this is Django template language)-->
-            فیلم هست
+            {% for item in movie_list1 %}
+                <ul> <li> {{ item }} </li></ul>
+            {% endfor %}
         {% else %}
-            نیست
+            <ul> <h3><p style="color:#b10707">
+            متاسفانه فیلمی یافت نشد
+            </p></h3>
+            </ul>
         {% endif %}
-    </li>
+
     </ul>
 
 </body>
