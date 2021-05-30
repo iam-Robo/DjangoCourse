@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فهرست سینماهای کشور</title>
+</head>
+
+<body style="background-color:#9197b4;">
+<h1>سامانه فروش بلیط</h1>
+<h3><span style="color:#9d0fd7">فهرست سالن</span><span style="color: transparent;text-shadow: none;">&nbsp;</span><span style="color:#4B0082">های سینما</span></h3>
+    <ul>{% if cinema_list1 %}
+        {% for item in cinema_list1 %}
+            <ul><li>{{ item }}</li></ul>
+        {% endfor %}</ul>
+    {% else %}
+        <ul> <h2><p style="color:#b10707">
+            متاسفانه سینمایی یافت نشد
+            </p></h2>
+            </ul>
+    {% endif %}
+</body>
+</html>
