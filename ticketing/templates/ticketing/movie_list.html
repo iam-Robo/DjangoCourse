@@ -6,9 +6,10 @@
 </head>
 <body>
 <h1>سامانه فروش بلیط سینما</h1>
-<h3>لیست فیلم های در حال اکران</h3>
-    <ul>
+<a href="{% url 'ticketing:cinema_list' %}" >لیست سینماها</a>
 
+<h3>لیست فیلم های در حال اکران</h3>
+ <ul>
         {% if movie_list1 %} <!--points to movie_list1 variable in views.py(this is Django template language)-->
             {% for item in movie_list1 %}
                 <ul> <li> {{ item }} </li></ul>
