@@ -7,19 +7,10 @@ from ticketing.models import Movie, Cinema
 
 def movie_list(request):
     movies = Movie.objects.all()
-    response_text = """
-        <!DOCTYPE html>
-            <html dir=rtl>
-            <head>
-            <title>لیست فیلم ها</title>
-            </head>
-            <body style="background-color:#4d79ff;">
-            <h1><span style="color:#9400D3">فیلم های</span><span style="color: transparent;text-shadow: none;">&nbsp;</span><span style="color:#4B0082">در حال اکران</span></h1>
-            <ul> {} </ul>
-            </body>
-            </html>
-            """.format(''.join('<h4><li>{}</li></h4>'.format(item) for item in movies))
-    return HttpResponse(response_text)
+    context = {
+        'movie_list' : movies
+    }
+    return render(request,'movie_list.html',context)
 
 def cinema_list(request):
     cinemas = Cinema.objects.all()
