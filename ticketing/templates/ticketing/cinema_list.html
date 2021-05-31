@@ -1,14 +1,16 @@
+{% load static %} <!-- for static files -->
 <!DOCTYPE html>
 <html dir="rtl" lang="fa">
 <head>
     <meta charset="UTF-8">
     <title>فهرست سینماهای کشور</title>
+    <link rel="stylesheet" type="text/css" href="{% static "/ticketing/css/main.css" %}"> <!-- for loading css file -->
 </head>
 
-<body style="background-color:#9197b4;">
+<body>
 <h1>سامانه فروش بلیط سینما</h1>
 <a href="{% url 'ticketing:movie_list' %}">لیست فیلم ها</a>
-<h3><span style="color:#9d0fd7">فهرست سالن</span><span style="color: transparent;text-shadow: none;">&nbsp;</span><span style="color:#4B0082">های سینما</span></h3>
+<h3>فهرست سالن های سینما</h3>
     <ul>{% if cinema_list1 %}
         {% for item in cinema_list1 %}
             <ul><li>{{ item }}</li></ul>

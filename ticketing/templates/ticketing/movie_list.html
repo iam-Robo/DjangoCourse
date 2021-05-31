@@ -1,10 +1,13 @@
+{% load static %} <!-- for static files -->
 <!DOCTYPE html>
 <html dir=rtl>
 <head>
     <meta charset="UTF-8">
     <title>فهرست فیلم ها</title>
+    <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/main.css" %}"> <!-- for loading css file -->
 </head>
 <body>
+
 <h1>سامانه فروش بلیط سینما</h1>
 <a href="{% url 'ticketing:cinema_list' %}" >لیست سینماها</a>
 
