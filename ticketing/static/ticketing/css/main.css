@@ -1,8 +1,8 @@
 body{
-  margin-right: 5px;
+  margin-right: 0;
   margin-top: auto;
   padding: 0;
-  background-color: #5079a7;
+  background-color: unset;
   font-family: "vazir", sans-serif;
 }
 H1{
