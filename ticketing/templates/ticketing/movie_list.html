@@ -15,7 +15,11 @@
  <ul>
         {% if movie_list1 %} <!--points to movie_list1 variable in views.py(this is Django template language)-->
             {% for item in movie_list1 %}
-                <ul> <li> {{ item }} </li></ul>
+                <ul> <li> {{ item }}
+                {% if item.director %}
+                    ({{ item.director }})
+                {% endif %}
+                </li></ul>
             {% endfor %}
         {% else %}
             <ul> <h2><p style="color:#b10707">
