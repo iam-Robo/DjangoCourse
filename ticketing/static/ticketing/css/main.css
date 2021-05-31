@@ -1,6 +1,10 @@
 body{
-  margin: 0;
+  margin-right: 5px;
+  margin-top: auto;
   padding: 0;
   background-color: #5079a7;
-  font-family:  'tahoma',sans-serif;
+  font-family: "vazir", sans-serif;
+}
+H1{
+  font-family: "B Titr";
 }

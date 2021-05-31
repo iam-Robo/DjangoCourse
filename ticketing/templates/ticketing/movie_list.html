@@ -1,16 +1,14 @@
 {% load static %} <!-- for static files -->
 <!DOCTYPE html>
-<html dir=rtl>
+<html dir=rtl lang="fa">
 <head>
     <meta charset="UTF-8">
     <title>فهرست فیلم ها</title>
     <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/main.css" %}"> <!-- for loading css file -->
 </head>
 <body>
-
 <h1>سامانه فروش بلیط سینما</h1>
 <a href="{% url 'ticketing:cinema_list' %}" >لیست سینماها</a>
-
 <h3>لیست فیلم های در حال اکران</h3>
  <ul>
         {% if movie_list1 %} <!--points to movie_list1 variable in views.py(this is Django template language)-->
