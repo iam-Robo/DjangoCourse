@@ -27,7 +27,7 @@
  <ul>
         {% if movie_list1 %} <!--points to movie_list1 variable in views.py(this is Django template language)-->
             {% for item in movie_list1 %}
-                <div class="p-2 bg-light border"><i class="fas fa-building"></i>
+                <div class="p-2 bg-light border"><i class="fas fa-film"></i>
                 {{ item }}
                 {% if item.director %}
                     <small class="text-muted">

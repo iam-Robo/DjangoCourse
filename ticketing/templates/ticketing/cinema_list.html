@@ -19,7 +19,7 @@
 
 <div style="background-color:#393434;color:white;padding:initial;"><h3>
         لیست سالن های سینما
-    <a href="{% url 'ticketing:movie_list' %}" class="btn btn-outline-warning"> <i class="fas fa-building"></i> لیست فیلم ها </a>
+    <a href="{% url 'ticketing:movie_list' %}" class="btn btn-outline-warning"> <i class="fas fa-film"></i> لیست فیلم ها </a>
 </h3></div>
 
 <div class="mx-auto" style="width:auto;">
@@ -27,7 +27,7 @@
 <table >
     <ul>{% if cinema_list1 %}
         {% for item in cinema_list1 %}
-            <div class="p-2 bg-light border"><i class="fas fa-building"></i>
+            <div class="p-2 bg-light border" ><i class="fas fa-building"></i>
                 {{ item }}
             {% if item.city %}
                 <small class="text-muted">
