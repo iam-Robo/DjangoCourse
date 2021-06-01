@@ -3,24 +3,37 @@
 <html dir=rtl lang="fa">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <script src="https://kit.fontawesome.com/da3ee3e8b8.js" crossorigin="anonymous"></script><!-- from fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.rtl.min.css" integrity="sha384-LPvXVVAlyPoBSGkX8UddpctDks+1P4HG8MhT7/YwqHtJ40bstjzCqjj+VVVDhsCo" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static "/ticketing/css/main.css" %}"> <!-- local css file -->
     <title>فهرست فیلم ها</title>
-
-    <link rel="stylesheet" type="text/css" href="{% static "ticketing/css/main.css" %}"> <!-- for loading css file -->
-
 </head>
+
+<div class="container-xl" style="background-color: #b10707">
 <body>
-<h1>سامانه فروش بلیط سینما</h1>
-<a href="{% url 'ticketing:cinema_list' %}" >لیست سینماها</a>
-<h3>لیست فیلم های در حال اکران</h3>
+
+<h1><center> سامانه فروش بلیط سینما</center></h1>
+
+<div style="background-color:#393434;color:white;padding:initial;"><h3>
+        لیست فیلم های در حال اکران
+    <a href="{% url 'ticketing:cinema_list' %}" class="btn btn-outline-warning"> <i class="fas fa-building"></i> لیست سینماها </a>
+</h3></div>
+
+<div class="mx-auto" style="width:auto;">
+    <div class="container" id="container">
+    <table >
  <ul>
         {% if movie_list1 %} <!--points to movie_list1 variable in views.py(this is Django template language)-->
             {% for item in movie_list1 %}
-                <ul> <li> {{ item }}
+                <div class="p-2 bg-light border"><i class="fas fa-building"></i>
+                {{ item }}
                 {% if item.director %}
-                    ({{ item.director }})
+                    <small class="text-muted">
+                        ({{ item.director }})</small></div>
                 {% endif %}
-                </li></ul>
-            {% endfor %}
+            {% endfor %}</table>
         {% else %}
             <ul> <h2><p style="color:#b10707">
             متاسفانه فیلمی یافت نشد
@@ -29,5 +42,11 @@
         {% endif %}
     </ul>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script> <!-- from bootstrap cdn -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> <!-- from JQuery cdn -->
+</div>
+</div>
+
 </body>
+</div>
 </html>
