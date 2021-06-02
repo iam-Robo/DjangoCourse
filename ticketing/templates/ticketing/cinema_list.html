@@ -28,12 +28,14 @@
         <ul class="item-list">
         {% for item in cinema_list1 %}
             <li>
+            <a href="{% url "ticketing:cinema_details" cinema_id=item.cinema_code %}">
             <i class="fas fa-building"></i>
                 {{ item }}
             {% if item.city %}
                 <small class="text-muted">
                 ({{ item.city }})
                 </small>
+                </a>
             {% endif %}
 </li>
         {% endfor %}
