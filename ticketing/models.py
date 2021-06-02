@@ -29,7 +29,7 @@ class Cinema(models.Model):
     capacity = models.IntegerField('گنجایش')
     phone = models.CharField('تلفن', max_length=20, blank=True)
     address = models.TextField('آدرس')
-    image = models.ImageField('تصویر', upload_to='cinema_images/', null=True)
+    image = models.ImageField('تصویر', upload_to='cinema_images/', null=True , blank=True) #blank gives ability for deleting picture in admin panel
     def __str__(self):
         return self.name
 class ShowTime(models.Model):
