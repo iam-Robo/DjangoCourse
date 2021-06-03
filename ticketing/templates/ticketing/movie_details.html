@@ -8,10 +8,11 @@
 {% endblock %}
 
 {% block toolbar_buttons %}
-    <a class="btn btn-warning py-1 px-2" href="{% url "ticketing:movie_list" %}">
-        <i class="fas fa-list"></i>
+    {{ block.super }}
+<a class="btn btn-warning py-1 px-2" href="{% url "ticketing:movie_list" %}">
+    <i class="fas fa-list"></i>
         فهرست فیلم‌ها
-    </a>
+</a>
 {% endblock %}
 
 {% block main_content %}

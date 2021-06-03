@@ -8,12 +8,12 @@
     {{ cinema.name }}
 {% endblock %}
 
-{% block toolbar_buttons %}
-    <a class="btn btn-warning py-1 px-2" href="{% url "ticketing:cinema_list" %}">
-        <i class="fas fa-list"></i>
+
+<a class="btn btn-warning py-1 px-2" href="{% url "ticketing:cinema_list" %}">
+    <i class="fas fa-list"></i>
         فهرست سینماها
-    </a>
-{% endblock %}
+</a>
+
 
 {% block main_content %}
     <div class="row py-3">
