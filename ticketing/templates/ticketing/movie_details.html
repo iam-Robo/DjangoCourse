@@ -1,10 +1,10 @@
 {% extends "ticketing/base_page.html" %}
 
-{% block title %}{{ movie.name }}{% endblock %}
+{% block title %}{{ movie_views.name }}{% endblock %}
 
 {% block toolbar_title %}
     <i class="fas fa-film"></i>
-    {{ movie.name }}
+    {{ movie_views.name }}
 {% endblock %}
 
 {% block toolbar_buttons %}
@@ -25,7 +25,7 @@
                     </small>
                 </div>
                 <div class="col-9">
-                    {{ movie.director }}
+                    {{ movie_views.director }}
                 </div>
                 <div class="w-100 my-1"></div>
                 <div class="col-3">
@@ -34,7 +34,7 @@
                     </small>
                 </div>
                 <div class="col-9">
-                    {{ movie.year }}
+                    {{ movie_views.year }}
                 </div>
                 <div class="w-100 my-1"></div>
                 <div class="col-3">
@@ -43,7 +43,7 @@
                     </small>
                 </div>
                 <div class="col-9">
-                    {{ movie.length }}
+                    {{ movie_views.length }}
                     دقیقه
                 </div>
                 <div class="w-100 my-1"></div>
@@ -53,12 +53,12 @@
                     </small>
                 </div>
                 <div class="col-9 item-text-box">
-                    {{ movie.description }}
+                    {{ movie_views.description }}
                 </div>
             </div>
         </div>
         <div class="col-4 text-center">
-            <img class="item-image" src="{{ movie.poster.url }}" alt="{{ movie.name }}">
+            <img class="item-image" src="{{ movie_views.poster.url }}" alt="{{ movie_views.name }}">
         </div>
     </div>
 {% endblock %}

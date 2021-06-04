@@ -10,9 +10,9 @@
 {% block main_content %}
     <div class="row">
         <div class="col py-3">
-            {% if movie_list1 %}
+            {% if movie_list1_views %}
                 <ul class="item-list">
-                    {% for movie in movie_list1 %}
+                    {% for movie in movie_list1_views %}
                         <li>
                             <a href="{% url "ticketing:movie_details" movie_id=movie.id %}">
                                 <i class="fas fa-film"></i>

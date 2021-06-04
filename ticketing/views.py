@@ -8,7 +8,7 @@ from ticketing.models import Movie, Cinema
 def movie_list(request):
     movies = Movie.objects.all()
     context = {
-        'movie_list1': movies
+        'movie_list1_views': movies
     }
     return render(request, 'ticketing/movie_list.html', context)
 
@@ -22,7 +22,7 @@ def cinema_list(request):
 def movie_details(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     context = {
-        'movie': movie
+        'movie_views': movie
     }
     return render(request, 'ticketing/movie_details.html', context)
 
