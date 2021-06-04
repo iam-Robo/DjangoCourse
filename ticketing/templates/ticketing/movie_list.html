@@ -10,6 +10,7 @@
 {% block main_content %}
     <div class="row">
         <div class="col py-3">
+        {% include 'ticketing/_ads.html' %}
             {% if movie_list1_views %}
                 <ul class="item-list">
                     {% for movie in movie_list1_views %}
@@ -24,7 +25,7 @@
                         </li>
                     {% endfor %}
                 </ul>
-
+                {% include 'ticketing/_ads.html' %}  <!-- for adds  -->
             {% else %}
                 <div class="alert alert-danger">
                     در حال حاضر هیچ فیلمی برای نمایش وجود ندارد.
