@@ -61,3 +61,6 @@ class ShowTime(models.Model):
         (SHOW_CANCELED,'سانس لغو شد'),
     )
     status = models.IntegerField(choices=status_choice)
+    def __str__(self):
+        name = str(self.movie),str(self.cinema)
+        return str(name) #to show name of movie and cinema in admin panel(adding scence)
