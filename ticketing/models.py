@@ -53,12 +53,12 @@ class ShowTime(models.Model):
     MOVIE_PLAYED = 5
     SHOW_CANCELED = 6
     status_choice = (
-        (SALE_NOT_STARTED,'فروش آغاز نشده'),
-        (SALE_OPEN,'در حال فروش بلیط'),
-        (TICKETS_SOLD,'بلیت ها تمام شدند'),
-        (SALE_CLOSED,'فروش بلیت بسته شد'),
-        (MOVIE_PLAYED,'فیلم پخش شد'),
-        (SHOW_CANCELED,'سانس لغو شد'),
+        (SALE_NOT_STARTED, 'فروش آغاز نشده'),
+        (SALE_OPEN, 'در حال فروش بلیط'),
+        (TICKETS_SOLD, 'بلیت ها تمام شدند'),
+        (SALE_CLOSED, 'فروش بلیت بسته شد'),
+        (MOVIE_PLAYED, 'فیلم پخش شد'),
+        (SHOW_CANCELED, 'سانس لغو شد'),
     )
     status = models.IntegerField(choices=status_choice)
     def __str__(self):

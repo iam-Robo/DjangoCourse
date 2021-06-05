@@ -14,11 +14,11 @@
                 <div class="row px-2">
                     {% for item in showtime_list_views %}
                         <div class="col-3 px-2 py-1">
-                               <button type="button" style="border-radius: 10px"
+                               <button type="button" style="border-radius:10px; font-size: 1em; font-weight: normal"
                                 {% if item.status != item.SALE_OPEN %}
                                         disabled class="btn btn-outline-secondary"
                                 {% else %}
-                                         class="btn btn-outline-primary">
+                                         class="btn btn-outline-primary" >
                                 {% endif %}
                                 <span>{{ item.movie }}</span>
                                 <br/>
@@ -27,31 +27,31 @@
                                 <span>
                                     {{ item.start_time|date:"l n/j ساعت H:i" }}
                                 </span>
-                               </button>
-                                {# TODO: extract a template tag or filter for class below #}
-                                <span class="showtime-status badge
-                                    {% if item.status == item.SALE_NOT_STARTED %}
-                                        badge-warning
-                                    {% elif item.status == item.SHOW_CANCELED %}
-                                        badge-danger
-                                    {% elif item.status == item.SALE_OPEN %}
-                                        badge-success
-                                    {% else %}
-                                        badge-secondary
-                                    {% endif %}">
+                               <br/>
                                     {% if item.status == item.SALE_OPEN %}
-                                        {{ item.get_price_display }}
+                                        <span class="badge bg-primary">
+                                            {{ item.price }} تومان
+                                        </span>
+                                    {% elif item.status == item.SHOW_CANCELED %}
+                                        <span class="badge bg-danger">
+                                            {{ item.get_status_display }}
+                                        </span>
+                                    {% elif item.status == item.MOVIE_PLAYED %}
+                                        <span class="badge bg-success">
+                                            {{ item.get_status_display }}
+                                        </span>
                                     {% else %}
-                                        {{ item.get_status_display }}
+                                        <span class="badge bg-warning text-dark">
+                                            {{ item.get_status_display }}
+                                        </span>
                                     {% endif %}
-                                </span>
-                                {% if item.status == item.SALE_OPEN and item.free_seats < 10 %}
-                                    <span class="badge badge-danger">
-                                    {{ item.free_seats }}
-                                    صندلی
-                                    </span>
-                                {% endif %}
-                            </a>
+                                    {% if item.status == item.SALE_OPEN and item.free_seats < 15 %}
+                                                <span class="badge bg-danger">
+                                                {{ item.free_seats }}
+                                                صندلی
+                                                </span>
+                                    {% endif %}
+                               </button>
                         </div>
                     {% endfor %}
                 </div>
