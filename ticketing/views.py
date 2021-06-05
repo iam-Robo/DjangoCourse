@@ -34,7 +34,7 @@ def cinema_details(request, cinema_id):
     return render(request, 'ticketing/cinema_details.html', context)
 
 def show_time(request):
-    showtime = ShowTime.objects.all()
+    showtime = ShowTime.objects.all().order_by('start_time') #to sort scence based on time in show list page
     context = {
         'showtime_list_views':showtime
     }
