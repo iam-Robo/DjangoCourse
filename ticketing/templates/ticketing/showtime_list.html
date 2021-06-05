@@ -7,24 +7,19 @@
 
 {% block main_content %}
             {% if showtime_list_views %}
-                <div class="row px-2">
-                    <div class="col">
-                        <div class="alert alert-info mt-2 mb-0 py-1 px-3">
-                            {{ showtime_list_views.count }}
-                            سانس یافت شد.
-                        </div>
-                    </div>
+                <div class="alert alert-info mt-2 mb-0 py-1 px-3">
+                    {{ showtime_list_views.count }}
+                        سانس یافت شد.
                 </div>
                 <div class="row px-2">
                     {% for item in showtime_list_views %}
-                        <div class="col-3 px-2 py-2">
-                               <span class="showtime-box btn
+                        <div class="col-3 px-2 py-1">
+                               <button type="button" style="border-radius: 10px"
                                 {% if item.status != item.SALE_OPEN %}
-                                    disabled btn-outline-secondary
+                                        disabled class="btn btn-outline-secondary"
                                 {% else %}
-                                    btn-outline-dark
-                                {% endif %}">
-                               </span>
+                                         class="btn btn-outline-primary">
+                                {% endif %}
                                 <span>{{ item.movie }}</span>
                                 <br/>
                                 <span>{{ item.cinema }}</span>
@@ -32,6 +27,7 @@
                                 <span>
                                     {{ item.start_time|date:"l n/j ساعت H:i" }}
                                 </span>
+                               </button>
                                 {# TODO: extract a template tag or filter for class below #}
                                 <span class="showtime-status badge
                                     {% if item.status == item.SALE_NOT_STARTED %}
