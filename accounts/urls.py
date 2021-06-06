@@ -3,7 +3,7 @@ from accounts import views
 
 app_name = 'accounts'  #this will be used for creating links in html files
 
-urlpatteins=[
+urlpatterns=[
 path('login/', views.login_view, name='login'),
-path('login', views.logout_view, name='logout')
+path('logout/', views.logout_view, name='logout')
 ]
