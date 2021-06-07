@@ -14,7 +14,10 @@ def login_view(request):
             return HttpResponse('ماشالاح')
 
     else:
-        return render(request, 'accounts/login.html', {})
+        if request.user.is_authenticated:
+            return HttpResponse('شما قبلا وارد شده اید')
+        else:
+            return render(request, 'accounts/login.html', {})
 
 def logout_view(request):
     pass
