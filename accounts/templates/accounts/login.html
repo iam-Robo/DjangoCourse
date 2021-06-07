@@ -15,6 +15,13 @@
 
 {% block main_content %}
     </br>
+
+    {% for item in messages %}  <!--  create div to show error message  -->
+        <div class="alert alert-danger">
+            {{ item }}
+        </div>
+    {% endfor %}
+
 <div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
