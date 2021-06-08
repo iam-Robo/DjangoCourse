@@ -1,8 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-
+from ticketing.models import Movie, Cinema, ShowTime
 # Create your views here.
-from ticketing.models import Movie, Cinema ,ShowTime
 
 
 def movie_list(request):
@@ -34,6 +33,7 @@ def cinema_details(request, cinema_id):
     return render(request, 'ticketing/cinema_details.html', context)
 
 def show_time(request):
+    request.user.is_authenticated #making difference between logged in user and quests
     showtime = ShowTime.objects.all().order_by('start_time') #to sort scence based on time in show list page
     context = {
         'showtime_list_views':showtime
