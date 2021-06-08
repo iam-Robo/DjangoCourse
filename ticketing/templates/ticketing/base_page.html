@@ -41,7 +41,17 @@
                     خرید بلیت
                 </a>
                 {% if user.is_authenticated %}
-
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary"><i class="far fa-user"></i> {{ user.get_full_name }}</button> <!--to show user's full name on button-->
+                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user-edit"></i> پروفایل من</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt"></i> خروج</a></li>
+                      </ul>
+                    </div>
                 {% else %}
                     <!-- if user is not logged in show login button-->
                     <a class="btn btn-primary py-1" style="margin-right: 10px" href="{% url "accounts:login" %}">
