@@ -14,6 +14,8 @@ def login_view(request):
             return HttpResponseRedirect(reverse('accounts:login'))
         else:
             login(request, user)
+            if request.GET.get('next'):
+                return HttpResponseRedirect(request.GET.get('next'))
             return HttpResponseRedirect(reverse('ticketing:showtime_list')) #after login redirects to showtime list
 
     else:
