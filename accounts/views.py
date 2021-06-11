@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect, reverse
 
 
@@ -28,5 +29,10 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('accounts:login'))
 
-def profile_view(request):
-    return render(request, 'accounts/profile_details.html', {})
+@login_required
+def profile_details(request):
+    profile = request.user.profile #for one to on key
+    context = {
+        'profile': profile
+    }
+    return render(request, 'accounts/profile_details.html', context)
