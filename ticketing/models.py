@@ -64,3 +64,19 @@ class ShowTime(models.Model):
     def __str__(self):
         name = str(self.movie),str(self.cinema)
         return str(name) #to show name of movie and cinema in admin panel(adding scence)
+
+class Ticket(models.Model):
+    """
+       Represents one or more tickets, bought by a user in an order
+    """
+    class Meta:
+        verbose_name = 'بلیط'
+        verbose_name_plural = 'بلیط'
+
+    showtime = models.ForeignKey('ShowTime', on_delete=models.PROTECT, verbose_name='سانس')
+    customer = models.ForeignKey('Profile', on_delete=models.PROTECT, verbose_name='خریدار')
+    seat_count = models.IntegerField('تعداد صندلی')
+    order_time = models.DateTimeField('زمان خرید', auto_now_add=True)
+
+    def __str__(self):
+        return '{} بلیط یه نام {} در {} صادر شد'.format(self.seat_count, self.customer, self.order_time)
