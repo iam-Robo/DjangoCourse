@@ -32,7 +32,7 @@ def cinema_details(request, cinema_id):
     }
     return render(request, 'ticketing/cinema_details.html', context)
 
-@login_required #if user is not logged in redirects to login page,next redirect to page user came from
+
 def show_time(request):
     showtime = ShowTime.objects.all().order_by('start_time') #to sort scence based on time in show list page
     context = {
@@ -40,6 +40,7 @@ def show_time(request):
     }
     return render(request,'ticketing/showtime_list.html', context)
 
+@login_required #if user is not logged in redirects to login page,next redirect to page user came from
 def ticket_list(request):
     tickets = Ticket.objects.filter(customer=request.user.profile).order_by('order_time')
     context = {
