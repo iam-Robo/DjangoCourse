@@ -74,7 +74,7 @@ class Ticket(models.Model):
         verbose_name_plural = 'بلیط'
 
     showtime = models.ForeignKey('ShowTime', on_delete=models.PROTECT, verbose_name='سانس')
-    customer = models.ForeignKey('Profile', on_delete=models.PROTECT, verbose_name='خریدار')
+    customer = models.ForeignKey('accounts.Profile', on_delete=models.PROTECT, verbose_name='خریدار')
     seat_count = models.IntegerField('تعداد صندلی')
     order_time = models.DateTimeField('زمان خرید', auto_now_add=True)
 

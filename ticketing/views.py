@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
-from ticketing.models import Movie, Cinema, ShowTime
+from ticketing.models import Movie, Cinema, ShowTime, Ticket
 # Create your views here.
 
 
@@ -39,3 +39,10 @@ def show_time(request):
         'showtime_list_views':showtime
     }
     return render(request,'ticketing/showtime_list.html', context)
+
+def ticket_list(request):
+    tickets = Ticket.objects.filter(customer=request.user.profile).order_by('order_time')
+    context = {
+        'tickets': tickets
+    }
+    return render(request, 'ticketing/ticket_list.html', context)
