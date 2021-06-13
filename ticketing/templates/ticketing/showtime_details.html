@@ -3,14 +3,14 @@
 
 {% block title %}
     خرید بلیت
-    {{ showtime.movie.name }}
+    {{ showtime_view.movie.name }}
 {% endblock %}
 
 {% block toolbar_title %}
     <i class="fas fa-play-circle"></i>
-    {{ showtime.movie.name }}
+    {{ showtime_view.movie.name }}
     <span class="small">
-        ({{ showtime.start_time|date:"l ساعت H:i" }})
+        ({{ showtime_view.start_time|date:"l ساعت H:i" }})
     </span>
 {% endblock %}
 
@@ -33,7 +33,7 @@
                     </small>
                 </div>
                 <div class="col-9">
-                    {{ showtime.movie.name }}
+                    {{ showtime_view.movie.name }}
                 </div>
                 <div class="w-100 my-1"></div>
                 <div class="col-3">
@@ -43,22 +43,22 @@
                     </small>
                 </div>
                 <div class="col-6">
-                    {{ showtime.cinema.name }}
+                    {{ showtime_view.cinema.name }}
                 </div>
                 <div class="col-3 text-left">
-                    {% if showtime.status == showtime.SALE_OPEN %}
+                    {% if showtime_view.status == showtime_view.SALE_OPEN %}
                         <span class="badge
-                            {% if showtime.free_seats < 10 %}
-                                badge-danger
+                            {% if showtime_view.free_seats < 50 %}
+                                badge bg-danger
                             {% else %}
-                                badge-info
+                                badge bg-primary
                             {% endif %}">
-                        {{ showtime.free_seats }}
+                        {{ showtime_view.free_seats }}
                         صندلی مانده
                         </span>
                     {% else %}
                         <span class="badge badge-dark">
-                            {{ showtime.get_status_display }}
+                            {{ showtime_view.get_status_display }}
                         <span>
                     {% endif %}
                 </div>
@@ -70,7 +70,7 @@
                     </small>
                 </div>
                 <div class="col-9">
-                    {{ showtime.start_time|date:"l Y/n/j ساعت H:i" }}
+                    {{ showtime_view.start_time|date:"l Y/n/j ساعت H:i" }}
                 </div>
                 <div class="w-100 my-1"></div>
                 <div class="col-3">
@@ -80,9 +80,9 @@
                     </small>
                 </div>
                 <div class="col-9 item-text-box">
-                    {{ showtime.cinema.address }}
+                    {{ showtime_view.cinema.address }}
                 </div>
-                {% if showtime.status == showtime.SALE_OPEN %}
+                {% if showtime_view.status == showtime.SALE_OPEN %}
                     <div class="w-100 my-1"></div>
                     <div class="col-3">
                         <small class="text-muted">
@@ -91,7 +91,7 @@
                         </small>
                     </div>
                     <div class="col-4">
-                        {{ showtime.price }}
+                        {{ showtime_view.price }}
                         تومان
                     </div>
                     <div class="col-5">
@@ -125,7 +125,7 @@
             </div>
         </div>
         <div class="col-4 text-center">
-            <img class="item-image" src="{{ showtime.movie.poster.url }}" alt="{{ showtime.movie.name }}">
+            <img class="item-image" src="{{ showtime_view.movie.poster.url }}" alt="{{ showtime_view.movie.name }}">
         </div>
     </div>
 {% endblock %}

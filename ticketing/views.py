@@ -60,6 +60,6 @@ def ticket_details(request, ticket_id):
 def showtime_details(request, showtime_id):
     showtime = ShowTime.objects.get(pk=showtime_id)
     context = {
-        'shotime':showtime
+        'showtime_view': showtime
     }
     return render(request, 'ticketing/showtime_details.html', context)
