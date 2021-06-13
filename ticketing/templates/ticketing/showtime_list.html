@@ -13,14 +13,15 @@
                 </div>
                 <div class="row px-2">
                     {% for item in showtime_list_views %}
-                        <div class="col-3 px-2 py-1">
+                        <div class="col-3 px-2 py-1" >
                                <button type="button" style="border-radius:10px;font-size: 1.1em;font-weight: normal"
                                 {% if item.status != item.SALE_OPEN %}
                                         disabled class="btn btn-outline-secondary"
                                 {% else %}
                                          class="btn btn-outline-primary" >
+                                 <a href="{% url "ticketing:showtime_details" showtime_id=item.id %}">
                                 {% endif %}
-                                <span>{{ item.movie }}</span>
+                                <span>{{ item.movie }} </span>
                                 <br/>
                                 <span>{{ item.cinema }}</span>
                                 <br/>
@@ -50,7 +51,7 @@
                                                 {{ item.free_seats }}
                                                 صندلی
                                                 </span>
-                                    {% endif %}
+                                    {% endif %}</a>
                                </button>
                         </div>
                     {% endfor %}
