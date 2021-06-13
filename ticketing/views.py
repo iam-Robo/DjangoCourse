@@ -55,3 +55,11 @@ def ticket_details(request, ticket_id):
         'ticket': ticket
     }
     return render(request, 'ticketing/ticket_details.html', context)
+
+@login_required
+def showtime_details(request, showtime_id):
+    showtime = ShowTime.objects.get(pk=showtime_id)
+    context = {
+        'shotime':showtime
+    }
+    return render(request, 'ticketing/showtime_details.html', context)

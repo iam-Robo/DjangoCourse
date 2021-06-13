@@ -11,4 +11,5 @@ urlpatterns = [
     path('showtime/list', views.show_time, name='showtime_list'),
     path('ticket/list/', views.ticket_list, name='ticket_list'),
     path('ticket/details/<int:ticket_id>/', views.ticket_details, name='ticket_details'),
+    path('showtime/details/<int:showtime_id>', views.showtime_details, name='showtime_details'),
 ]
