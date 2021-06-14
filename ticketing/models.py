@@ -61,6 +61,20 @@ class ShowTime(models.Model):
         (SHOW_CANCELED, 'سانس لغو شد'),
     )
     status = models.IntegerField(choices=status_choice)
+
+    def reserve_seat(self, seat_count):
+        """
+        Reserves one or more seats for a customer
+        :param seat_count: An integer as the number of seats to be reserved
+        """
+        assert isinstance(seat_count, int) and seat_count > 0, 'Number of seats should be a positive integer'
+        assert self.status == ShowTime.SALE_OPEN, 'Sale is not open'
+        assert self.free_seats >= seat_count, 'Not enough free seats'
+        self.free_seats -= seat_count
+        if self.free_seats == 0:
+            self.status = ShowTime.TICKETS_SOLD
+        self.save()
+
     def __str__(self):
         name = str(self.movie),str(self.cinema)
         return str(name) #to show name of movie and cinema in admin panel(adding scence)
