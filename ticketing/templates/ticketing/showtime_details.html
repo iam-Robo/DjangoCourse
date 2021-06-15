@@ -115,11 +115,25 @@
                     </form>
                     </div>
                 {% endif %}
+            <!--  if error occurs during ticket order the block wil be shown-->
                 {% if error %}
                     <div class="w-100 my-1"></div>
                     <span class="col-12 alert alert-danger align-items-baseline small p-2">
                         <i class="fas fa-exclamation-circle"></i>
                         {{ error }}
+                    </span>
+                {% endif %}
+            <!--  if the by was successful the block below wil be shown-->
+            {% if message %}
+                    <div class="w-100 my-1"></div>
+                    <span class="col-12 alert alert-success align-items-baseline small p-2">
+                        <i class="fas fa-exclamation-circle"></i>
+                        {{ message }}
+                     <a href="{% url 'ticketing:ticket_list' %}">
+
+                    <button  type="button" class="btn btn-xs btn-primary my-1" >
+                            مشاهده بلیط
+                    </button></a>
                     </span>
                 {% endif %}
             </div>

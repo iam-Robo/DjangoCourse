@@ -27,13 +27,13 @@ class Profile(models.Model):
         return self.balance
 
     def deposit(self, amount):
-        self.deposit += amount
+        self.balance += amount
         self.save()
 
     def spend(self, amount):
-        if amount > self.deposit:
+        if amount > self.balance:
             return False
         else:
-            self.deposit -= amount
+            self.balance -= amount
             self.save()
             return True
