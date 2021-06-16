@@ -35,8 +35,12 @@ def cinema_details(request, cinema_id):
 
 
 def show_time(request):
-    search_form = ShowTimeSearchForm()
-    showtime = ShowTime.objects.all().order_by('start_time') #to sort scence based on time in show list page
+    search_form = ShowTimeSearchForm(request.GET)
+    if search_form.is_valid():
+        movie_name = search_form.cleaned_data['movie_name']
+        showtime = ShowTime.objects.filter(movie__name__contains=movie_name).order_by('start_time')
+    else:
+        showtime = ShowTime.objects.all().order_by('start_time') #to sort scence based on time in show list page
     context = {
         'showtime_list_views': showtime,
         'search_form': search_form,
