@@ -7,9 +7,10 @@
 
 {% block main_content %}
             {% if showtime_list_views %}
-                    <div class="row px-2">
+                    <div class="row px-2 search-bar" style="margin-top:2px">
                         <form method="get" action="">
                             {{ search_form }}
+                            <button type="submit" class="btn btn-outline-primary btn-sm">جستجو</button>
                         </form>
                     </div>
                 <div class="alert alert-info mt-2 mb-0 py-1 px-3">
