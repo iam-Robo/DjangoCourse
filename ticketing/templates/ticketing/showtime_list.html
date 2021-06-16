@@ -7,6 +7,11 @@
 
 {% block main_content %}
             {% if showtime_list_views %}
+                    <div class="row px-2">
+                        <form method="get" action="">
+                            {{ search_form }}
+                        </form>
+                    </div>
                 <div class="alert alert-info mt-2 mb-0 py-1 px-3">
                     {{ showtime_list_views.count }}
                         سانس یافت شد.

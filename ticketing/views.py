@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from ticketing.models import Movie, Cinema, ShowTime, Ticket
+from ticketing.forms import ShowTimeSearchForm
 # Create your views here.
 
 
@@ -34,9 +35,11 @@ def cinema_details(request, cinema_id):
 
 
 def show_time(request):
+    search_form = ShowTimeSearchForm()
     showtime = ShowTime.objects.all().order_by('start_time') #to sort scence based on time in show list page
     context = {
-        'showtime_list_views':showtime
+        'showtime_list_views': showtime,
+        'search_form': search_form,
     }
     return render(request,'ticketing/showtime_list.html', context)
 
