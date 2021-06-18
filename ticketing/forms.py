@@ -7,6 +7,7 @@ class ShowTimeSearchForm(forms.Form):
     sale_is_open = forms.BooleanField(label='سانس های قابل خرید', required=False)
     movie_min_length = forms.IntegerField(label='حداقل مدت زمان فیلم', min_value=0,max_value=200, required=False)
     movie_max_length = forms.IntegerField(label='حداکثر مدت زمان فیلم', min_value=0,max_value=200, required=False)
+    cinema = forms.ModelChoiceField(label='سینما', queryset=Cinema.objects.all(), required=False)  # queryset for Cinema model to get names of cinemas
 
     any_price = '0'
     price_1 = '1'
@@ -19,4 +20,3 @@ class ShowTimeSearchForm(forms.Form):
         (price_3, 'بین 15000 تا 25000 تومان')
         )
     price_range = forms.ChoiceField(label='محدوده قیمت',choices=price_choices, required=False)
-    cinema = forms.ModelChoiceField(label='سینما',queryset=Cinema.objects.all(), required=False)#queryset for Cinema model to get names of cinemas
