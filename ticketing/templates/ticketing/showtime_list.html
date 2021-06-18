@@ -6,13 +6,36 @@
 {% endblock %}
 
 {% block main_content %}
+    <div class="row">
+        <div class="col py-3">
+            <div class="row">
+                <div class="col my-2 mx-3 py-2 px-3 search-bar">
+                    <form action="" method="get" class="form-row px-2">
+                        <div class="row">
+                        {% include "ticketing/_form_field.html" with field=search_form.movie_name %}
+                        {% include "ticketing/_form_field.html" with field=search_form.cinema %}
+                        </div>
+                        <div class="row">
+                        {% include "ticketing/_form_field.html" with field=search_form.movie_min_length label_size=3 input_size=2 %}
+                        {% include "ticketing/_form_field.html" with field=search_form.movie_max_length label_size=3 input_size=2 %}
+                        </div>
+                        <div class="row">
+                        <div class="col-5" >
+                            {{ search_form.sale_is_open }}
+                            {{ search_form.sale_is_open.label }}
+                        </div>
+                        {% include "ticketing/_form_field.html" with field=search_form.price_range %}
+                        </div>
+                        <div class="col-6" >
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            جست‌وجو
+                        </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             {% if showtime_list_views %}
-                    <div class="col my-1 mx-3 py-2 px-3 search-bar" style="margin-top:2px">
-                        <form method="get" action="" class="form-row px-2">
-                            {{ search_form }}
-                            <button type="submit" class="btn btn-outline-primary btn-sm">جستجو</button>
-                        </form>
-                    </div>
                 <div class="alert alert-info mt-2 mb-0 py-1 px-3">
                     {{ showtime_list_views.count }}
                         سانس یافت شد.
