@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from ticketing.models import Movie, Cinema, ShowTime, Ticket
 from ticketing.forms import ShowTimeSearchForm
+
 # Create your views here.
 
 
@@ -47,6 +48,12 @@ def show_time(request):
             showtime = showtime.filter(movie__length__lte=search_form.cleaned_data['movie_max_length'])
         if search_form.cleaned_data['cinema'] is not None:
             showtime = showtime.filter(cinema__name=search_form.cleaned_data['cinema'])
+
+        min_price, max_price = search_form.price_levels()
+        if min_price is not None:
+            showtime = showtime.filter(price__gte=min_price)
+        if max_price is not None:
+            showtime = showtime.filter(price__lte=max_price)
 
     showtime = showtime.order_by('start_time')
     context = {

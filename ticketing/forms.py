@@ -13,10 +13,25 @@ class ShowTimeSearchForm(forms.Form):
     price_1 = '1'
     price_2 = '2'
     price_3 = '3'
+    price_4 = '4'
     price_choices = (
         (any_price, 'هر قیمتی'),
-        (price_1, 'بین  5000 تا 10000 تومان'),
+        (price_1, 'زیر 10000 تومان'),
         (price_2, 'بین 10000 تا 15000 تومان'),
-        (price_3, 'بین 15000 تا 25000 تومان')
+        (price_3, 'بین 15000 تا 20000 تومان'),
+        (price_4, 'بیشتر از 20000 تومان')
         )
     price_range = forms.ChoiceField(label='محدوده قیمت',choices=price_choices, required=False)
+
+    def price_levels(self):
+        price_ranges = self.cleaned_data['price_range']
+        if price_ranges == ShowTimeSearchForm.price_1:
+            return None, 10000
+        elif price_ranges == ShowTimeSearchForm.price_2:
+            return 10000, 15000
+        elif price_ranges == ShowTimeSearchForm.price_3:
+            return 15000, 20000
+        elif price_ranges == ShowTimeSearchForm.price_4:
+            return 20000, None
+        else:
+            return None, None
