@@ -36,3 +36,9 @@ def profile_details(request):
         'profile': profile
     }
     return render(request, 'accounts/profile_details.html', context)
+
+def payment_list(request):
+    context = {
+        'payment_list_views': '#'
+    }
+    return render(request, 'accounts/payment_list.html', context)
