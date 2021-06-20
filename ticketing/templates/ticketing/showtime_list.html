@@ -15,10 +15,12 @@
                         {% include "ticketing/_form_field.html" with field=search_form.movie_name %}
                         {% include "ticketing/_form_field.html" with field=search_form.cinema %}
                         </div>
+                           <hr>
                         <div class="row">
                         {% include "ticketing/_form_field.html" with field=search_form.movie_min_length label_size=3 input_size=2 %}
                         {% include "ticketing/_form_field.html" with field=search_form.movie_max_length label_size=3 input_size=2 %}
                         </div>
+                        <hr>
                         <div class="row">
                         <div class="col-5" >
                             {{ search_form.sale_is_open }}
@@ -26,6 +28,7 @@
                         </div>
                         {% include "ticketing/_form_field.html" with field=search_form.price_range %}
                         </div>
+                        <hr>
                         <button type="submit" class="btn btn-primary btn-sm" style="font-size: x-small">
                             جست‌وجو
                         </button>
