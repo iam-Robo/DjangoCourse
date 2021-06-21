@@ -53,6 +53,6 @@ def payment_list(request):
 def payment_create(request):
     payment_form = PaymentForm()
     context = {
-        'payment_form_view':payment_form
+        'payment_form_view': payment_form
     }
     return render(request, 'accounts/payment_create.html', context)
