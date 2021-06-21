@@ -5,6 +5,9 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 
 
 # Create your views here.
+from accounts.models import Payment
+
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -37,8 +40,10 @@ def profile_details(request):
     }
     return render(request, 'accounts/profile_details.html', context)
 
+@login_required()
 def payment_list(request):
+    payment = Payment.objects.filter(profile=request.user.profile).order_by('-transaction_time')
     context = {
-        'payment_list_views': '#'
+        'payment_list_views': payment
     }
     return render(request, 'accounts/payment_list.html', context)
