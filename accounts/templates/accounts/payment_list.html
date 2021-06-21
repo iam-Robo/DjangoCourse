@@ -11,36 +11,42 @@
 {% endblock %}
 
 {% block main_content %}
+
     <div class="row">
         <div class="col-12 mt-2">
+            <div class="alert alert-success" role="alert">
+                شما تا کنون
+                {{ payment_list_views.count }}
+                پرداخت موفق انجام داده اید
+            </div>
             <a href="{% url "accounts:payment_create" %}" class="btn btn-success btn-sm">
                 <i class="fas fa-plus"></i>
                 پرداخت جدید
             </a>
         </div>
         <div class="col py-3">
-            {% if payments %}
+            {% if payment_list_views %}
                 <ul class="item-list">
-                    {% for payment in payments %}
+                    {% for item in payment_list_views %}
                         <li>
                             <span class="ml-4">
                                 <span class="text-muted ml-1">
                                     مبلغ:
                                 </span>
-                                {{ payment.amount }}
+                                {{ item.amount }}
                                 تومان
                             </span>
                             <span class="ml-4">
                                 <span class="text-muted ml-1">
                                     تاریخ تراکنش:
                                 </span>
-                                {{ payment.transaction_time|date:"Y/n/j - H:i" }}
+                                {{ item.transaction_time|date:"Y/n/j - H:i" }}
                             </span>
                             <span class="ml-4">
                                 <span class="text-muted ml-1">
                                     رسید تراکنش:
                                 </span>
-                                {{ payment.transaction_code }}
+                                {{ item.transaction_code }}
                             </span>
                         </li>
                     {% endfor %}
