@@ -1,4 +1,4 @@
-{% extends "accounts/base_accounts.html" %}
+{% extends "accounts/base_account.html" %}
 {% load static %}
 
 {% block title %}
@@ -14,7 +14,7 @@
     <form action="" method="post" class="form py-2">
         {% csrf_token %}
         <table class="my-1">
-        {{ payment_form.as_table }}
+        {{ payment_form_view.as_table }}
         </table>
         <button type="submit" class="btn btn-success btn-sm">
             ثبت

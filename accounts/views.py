@@ -2,10 +2,11 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect, reverse
-
+from accounts.forms import PaymentForm
+from accounts.models import Payment
 
 # Create your views here.
-from accounts.models import Payment
+
 
 
 def login_view(request):
@@ -47,3 +48,11 @@ def payment_list(request):
         'payment_list_views': payment
     }
     return render(request, 'accounts/payment_list.html', context)
+
+@login_required()
+def payment_create(request):
+    payment_form = PaymentForm()
+    context = {
+        'payment_form_view':payment_form
+    }
+    return render(request, 'accounts/payment_create.html', context)
