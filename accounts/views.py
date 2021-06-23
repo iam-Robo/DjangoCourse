@@ -5,7 +5,6 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 from accounts.forms import PaymentForm
 from accounts.models import Payment
 
-
 # Create your views here.
 
 
