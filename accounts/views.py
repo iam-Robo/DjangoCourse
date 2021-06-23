@@ -5,6 +5,7 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 from accounts.forms import PaymentForm
 from accounts.models import Payment
 
+
 # Create your views here.
 
 
@@ -54,7 +55,8 @@ def payment_create(request):
     if request.method == 'POST':
         payment_form = PaymentForm(request.POST)
         if payment_form.is_valid():
-            payment_form.save()
+            payment = payment_form.save()
+            request.user.profile.deposit(payment.amount) #to save amount into user deposit amount
             return HttpResponseRedirect(reverse('accounts:payment_list'))
     else:
         payment_form = PaymentForm()
