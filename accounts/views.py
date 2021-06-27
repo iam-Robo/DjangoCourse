@@ -65,3 +65,7 @@ def payment_create(request):
         'payment_form_view': payment_form
     }
     return render(request, 'accounts/payment_create.html', context)
+
+
+def profile_edit(request):
+    pass
