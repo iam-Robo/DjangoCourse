@@ -1,6 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from accounts.models import Payment
+from accounts.models import Payment, Profile
 import re
 
 '''
@@ -41,3 +41,9 @@ class PaymentForm(forms.ModelForm):
             raise ValidationError('مبلغ پرداختی باید مضربی از هزار باشد')
         else:
             return amount
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['gender', 'address', 'mobile']

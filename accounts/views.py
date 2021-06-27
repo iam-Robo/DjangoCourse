@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect, reverse
-from accounts.forms import PaymentForm
+from accounts.forms import PaymentForm, ProfileForm
 from accounts.models import Payment
 
 # Create your views here.
@@ -67,5 +67,16 @@ def payment_create(request):
     return render(request, 'accounts/payment_create.html', context)
 
 
+@login_required()
 def profile_edit(request):
-    pass
+    if request.method == 'POST':
+        profile_form = ProfileForm(request.POST, instance=request.user.profile) #to read existing user profile data
+        if profile_form.is_valid():
+            profile_form.save()
+            return HttpResponseRedirect(reverse('accounts:profile_details'))
+    else:
+        profile_form = ProfileForm(instance=request.user.profile)
+    context = {
+        'profile_form': profile_form
+    }
+    return render(request, 'accounts/profile_edit.html', context)
